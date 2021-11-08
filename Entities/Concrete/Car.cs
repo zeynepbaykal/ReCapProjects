@@ -1,4 +1,4 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Entities.Concrete
 {
-    [Table("Cars", Schema ="dbo")]
+    //[Table("Cars", Schema ="dbo")]
     public class Car:IEntity
     {
         public int Id { get; set; }
