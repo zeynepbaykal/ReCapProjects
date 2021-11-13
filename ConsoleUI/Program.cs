@@ -10,39 +10,63 @@ namespace ConsoleUI
         
         static void Main(string[] args)
         {
-            //CarManager carManager = new CarManager(new EfCarDal());
-
-
-
-
-            //foreach (var car in carManager.GetAll())
-            //{
-            //    Console.WriteLine((car.BrandId +  car.ColorId + car.DailyPrice + car.Description));
-
-            //}
+            //NewMethod();
 
             //ProductTest();
-            CarManager carManager = new CarManager(new EfCarDal());
+            //CarManager carManager = new CarManager(new EfCarDal());
 
-            var cars = carManager.GetCarDetails();
+            //var cars = carManager.GetCarDetails();
 
-            foreach (var car in cars)
-            {
-                Console.WriteLine($"{car.BrandName} --- {car.ColorName} ---- {car.DailyPrice}");
-            }
+            //foreach (var car in cars)
+            //{
+            //    Console.WriteLine($"{car.BrandName} --- {car.ColorName} ---- {car.DailyPrice}");
+            //}(
+
+            ProductTest1();
 
 
 
 
         }
-        private static void ProductTest()
+        private static void ProductTest1()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-
-            foreach (var car in carManager.GetAll())
+            var result = carManager.GetCarDetails();
+            if (result.Succes==true)
             {
-                Console.WriteLine(car.Description + "/" + car.ColorId + "/" + car.DailyPrice);
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.ColorName + "/" + car.BrandName + "/" + car.DailyPrice);
+                }
             }
         }
+
+
+
+        //private static void NewMethod()
+        //{
+        //    CarManager carManager = new CarManager(new EfCarDal());
+
+
+
+
+        //    foreach (var car in carManager.GetAll())
+        //    {
+        //        Console.WriteLine((car.BrandId + car.ColorId + car.DailyPrice + car.Description));
+
+        //    }
+        //}
+
+
+        //private static void ProductTest()
+        //{
+        //    CarManager carManager = new CarManager(new EfCarDal());
+
+
+        //    foreach (var car in carManager.GetAll())
+        //    {
+        //        Console.WriteLine(car.Description + "/" + car.ColorId + "/" + car.DailyPrice);
+        //    }
+        //}
     }
 }
