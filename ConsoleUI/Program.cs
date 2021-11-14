@@ -22,9 +22,23 @@ namespace ConsoleUI
             //    Console.WriteLine($"{car.BrandName} --- {car.ColorName} ---- {car.DailyPrice}");
             //}(
 
-            ProductTest1();
+            //ProductTest1();
 
+            RentalManager carManager = new RentalManager(new EfRentDal());
+            
 
+            var result = carManager.GetRentalDetails();
+            if (result.Count != 0)
+            {
+                foreach (var car in result)
+                {
+                    Console.WriteLine(car.RentId + "/" + car.ReturnDate + "/" + car.RentDate + "/" + car.CustomerId);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result);
+            }
 
 
         }
