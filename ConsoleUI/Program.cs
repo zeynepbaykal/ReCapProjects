@@ -24,15 +24,15 @@ namespace ConsoleUI
 
             //ProductTest1();
 
-            RentalManager carManager = new RentalManager(new EfRentDal());
+            CarManager carManager = new CarManager(new EfCarDal());
             
 
-            var result = carManager.GetRentalDetails();
-            if (result.Count != 0)
+            var result = carManager.GetCarDetails();
+            if (result.Succes == true)
             {
-                foreach (var car in result)
+                foreach (var car in result.Data)
                 {
-                    Console.WriteLine(car.RentId + "/" + car.ReturnDate + "/" + car.RentDate + "/" + car.CustomerId);
+                    Console.WriteLine(car.BrandName + "/" + car.CarId + "/" + car.ColorName + "/" + car.DailyPrice);
                 }
             }
             else
