@@ -1,10 +1,14 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,13 +27,11 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.Description.Length < 20)
-            {
-               
+            //business code--iş gereksinimlerini yazdığımız koddur.
+            //validation--iş kurallarına dahil etmek için yapılan doğrulaama kodudur.
 
-                return new SuccessResult(Messages.CarNameInvalid);
-
-            }
+           
+            ValidationTool.Validate(new CarValidator(), car);
 
             _carDal.Add(car);
 
