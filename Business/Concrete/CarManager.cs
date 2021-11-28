@@ -25,13 +25,14 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [ValidationAspect(typeof(CarValidator))] //35.satırdakı kodun yerine yazdık 
         public IResult Add(Car car)
         {
             //business code--iş gereksinimlerini yazdığımız koddur.
             //validation--iş kurallarına dahil etmek için yapılan doğrulaama kodudur.
 
            
-            ValidationTool.Validate(new CarValidator(), car);
+            //ValidationTool.Validate(new CarValidator(), car);
 
             _carDal.Add(car);
 
