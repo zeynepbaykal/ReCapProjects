@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
             //Dependency chain-- bağımlılık zinciri
 
             var result = _customerService.GetAll();
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
         public IActionResult GetById(int id)
         {
             var result = _customerService.GetByCustomerUserId(id);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
         public IActionResult Add(Customer customer)
         {
             var result = _customerService.Add(customer);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }

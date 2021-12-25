@@ -28,7 +28,7 @@ namespace ConsoleUI
             
 
             var result = carManager.GetCarDetails();
-            if (result.Succes == true)
+            if (result.Success == true)
             {
                 foreach (var car in result.Data)
                 {
@@ -46,7 +46,7 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
             var result = carManager.GetCarDetails();
-            if (result.Succes==true)
+            if (result.Success==true)
             {
                 foreach (var car in result.Data)
                 {

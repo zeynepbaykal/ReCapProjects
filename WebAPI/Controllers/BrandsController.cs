@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
             //Dependency chain-- bağımlılık zinciri
 
             var result = _brandService.GetAll();
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -37,7 +37,7 @@ namespace WebAPI.Controllers
         public IActionResult GetById(int id)
         {
             var result = _brandService.GetById(id);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -49,7 +49,7 @@ namespace WebAPI.Controllers
         public IActionResult Add(Brand brand)
         {
             var result = _brandService.Add(brand);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
