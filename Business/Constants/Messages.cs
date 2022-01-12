@@ -35,5 +35,12 @@ namespace Business.Constants
         public static string RentalListed = "Müşteri listelendi";
         public static string RentalUpdated = "Müşteri güncellendi";
 
+        //For CarImage
+        public static string CarImageAdded = "Araç fotoğrafı eklendi";
+        public static string CarImageUpdated = "Araç fotoğrafı güncellendi";
+        public static string CarImageDeleted = "Araç fotoğrafı silindi";
+        public static string CarImageCountOfCarError = "Aracın fotoğrafları maksimum sayıdadır";
+        public static string CarImagesListed = "Araç fotoğrafları listelendi";
+
     }
 }
