@@ -21,9 +21,9 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from c in context.Users
                              join b in context.Customers on
-                             c.UserId equals b.UserId
+                             c.Id equals b.UserId
 
-                             select new RentalDetailDto { CustomerId = c.UserId,CarId=b.UserId };
+                             select new RentalDetailDto { CustomerId = c.Id, CarId=b.UserId };
                 return result.ToList();
             }
         }

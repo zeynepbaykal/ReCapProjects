@@ -42,5 +42,14 @@ namespace Business.Constants
         public static string CarImageCountOfCarError = "Aracın fotoğrafları maksimum sayıdadır";
         public static string CarImagesListed = "Araç fotoğrafları listelendi";
 
+        //jwt
+        public static string AuthorizationDenied = "Yetkiniz yok.";
+        public static string UserNotFound = "Kullanıcı bulunamadı.";
+        public static string PasswordError = "Kullanıcı parola hatası.";
+        public static string UserRegistered = "Kulanıcı kayıt oldu.";
+        internal static string SuccessfulLogin = "Kullanıcı başarılı giriş yaptı.";
+        internal static string UserAlreadyExists = "Kullanıcı mevcut";
+        internal static string AccessTokenCreated = "Token oluşturuldu.";
+
     }
 }
