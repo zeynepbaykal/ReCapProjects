@@ -9,11 +9,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
+
 namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, ReCapContext>, ICarDal
     {
-        public List<CarDetailDto> GetCarDetails()
+        public List<CarDetailDto> GetCarDetailDtos(Expression<Func<CarDetailDto, bool>> filter = null)
         {
             using (ReCapContext context = new ReCapContext())
             {
@@ -22,10 +23,15 @@ namespace DataAccess.Concrete.EntityFramework
                              c.BrandId equals b.Id
                              join cl in context.Colors on
                              c.ColorId equals cl.Id
-                             select new CarDetailDto { CarId = c.Id, BrandName = b.Name, ColorName = cl.Name, DailyPrice = c.DailyPrice };
-                return result.ToList();
+                             select new CarDetailDto { Id = c.Id, BrandName = b.Name, ColorName = cl.Name, DailyPrice = c.DailyPrice };
+                return filter is null ? result.ToList() : result.Where(filter).ToList();
             }
         }
+
+       
+
+
+
 
         //object ICarDal.GetCarDetails()
         //{

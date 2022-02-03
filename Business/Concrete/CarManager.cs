@@ -14,6 +14,7 @@ using Entities.DTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Business.Concrete
@@ -66,10 +67,10 @@ namespace Business.Concrete
         [CacheAspect] //key,value
         public IDataResult <List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour == 12)
-            {
-                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
-            }
+            //if (DateTime.Now.Hour == 12)
+            //{
+            //    return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+            //}
 
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
         }
@@ -85,6 +86,15 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id));
         }
 
+        //public IDataResult<List<CarDetailDto>> GetCarDetailId(int id)
+        //{
+        //    return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.CarId == id), Messages.CarDetailsReceived);
+        //}
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailDtos(Expression<Func<CarDetailDto, bool>> filter = null)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtos(filter), "Ürünler Listelendi.");
+        }
         public IDataResult<List<CarDetailDto>>GetCarDetails()
         {
             if (DateTime.Now.Hour == 22)
@@ -93,7 +103,7 @@ namespace Business.Concrete
 
             }
 
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtos());
         }
        
 
