@@ -91,7 +91,7 @@ namespace Business.Concrete
         //    return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.CarId == id), Messages.CarDetailsReceived);
         //}
 
-        public IDataResult<List<CarDetailDto>> GetCarDetailDtos(Expression<Func<CarDetailDto, bool>> filter = null)
+        public IDataResult<List<CarDetailDto>> GetCarDetailDtos(Expression<Func<Car, bool>> filter = null)
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtos(filter), "Ürünler Listelendi.");
         }
